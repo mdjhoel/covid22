@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Lesson 4</title>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo" style="padding-left: 15">Mr Hoel</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#lesson">Lesson</a></li>
+                <li><a href="#future">Future</a></li>
+              </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+
+            <h3 class="myh3">Lesson 4 - Introduction to Javascript</h3>
+              <div class="row">
+                <div class="col s12 m6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="javascript.jpeg">
+                    </div>
+                    <div class="card-content">
+                      <p>Javascript is the programming language for the world wide web (WWW). Today you will learn the basics of adding interactivity to your web site.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Materialize JS examples calling JS functions -->
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <span class="card-title">JS Example</span>
+                                <div class="input-field col s6">
+                                    <input id="sentence" type="text">
+                                    <label for="name">Name</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <button class="btn waves-effect waves-light" onclick="makesentence()">Go!
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="newsentence" style="padding-left: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+
+            <h3 id="lesson">Lesson progression</h3>
+
+            <ul class="collection">
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+                  <span class="title">What is Javascript?</span>
+                  <p><a href="https://www.youtube.com/watch?v=nItSSTwBvSU&ab_channel=CodeSchoolCodeSchool" target="_blank">Quick review of the nature of JS</a>
+                  </p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle pink">code</i>
+                  <span class="title">Javascript in the browser</span>
+                  <p>Right click, Inspect and view the console.</p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle pink">chrome_reader_mode</i>
+                  <span class="title">W3schools JS help</span>
+                    <p><a href="https://www.w3schools.com/js/js_intro.asp" target="_blank">Help is always close!</a>. Go through examples together (document.getElementById and innerHTML, button)</p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle pink">code</i>
+                  <span class="title">Basics in Javascript</span>
+                  <p>Intro sequential nature, console.log(), math, memory variables and data types, strings, selection with if statements, repetition with loops, modularization with functions.</p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle pink">code</i>
+                  <span class="title">Update your first web page with some JS</span>
+                  <p>
+                      Copy and paste from this web page to add data input to your original index.html
+                  </p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle blue">cloud_upload</i>
+                  <span class="title">Upload new code to Github</span>
+                  <p>
+                      Upload your changes
+                  </p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle blue">cloud_upload</i>
+                  <span class="title">Update your repo wiki</span>
+                  <p>
+                      Write about what you learned today.
+                  </p>
+                </li>
+              </ul>
+
+            <h3 id="future">Future lessons</h3>
+            <ul class="collection">
+                <li class="collection-item">Javascript and JSON</li>
+                <li class="collection-item">Mapping using Leaflet.js</li>
+                <li class="collection-item">Advanced Mapping algorithm</li>
+                <li class="collection-item">Graphing using chart.js</li>
+                <li class="collection-item">Show and tell</li>
+            </ul>
+        </div>
+    </body>
+
+    <script>
+
+        function makesentence() {
+            var sentencehandle = document.getElementById("newsentence");
+            var name = document.getElementById("sentence").value;
+            sentencehandle.innerHTML = name + " is cool.";
+        }
+    </script>
+
+</html>
