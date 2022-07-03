@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <!-- Axios http request library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+        <!-- CDN for Leaflet mapping libary -->
+        <link rel='stylesheet' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'/>
+        <script src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+
+        <!-- CDN for Materialize framework -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="covid.json"></script>
+        <title>Lesson 7</title>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo" style="padding-left: 15">Mr Hoel</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#lesson">Lesson</a></li>
+                <li><a href="#future">Future</a></li>
+              </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+
+            <h3 class="myh3">Lesson 7 - Advanced mapping algorithm</h3>
+              <div class="row">
+                <div class="col s12">
+                  <div class="card">
+                    <div id='map' style='width:100%; height:400'></div>
+                    <div class="card-content">
+                      <p>This map data comes from a JSON file and uses an algorithm to build it.</p>
+                      <div style="padding-top: 10px">
+                        <button class="waves-effect waves-light btn" onclick="algo()"><i class="material-icons left">cloud</i>Show data</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            <h3 id="lesson">Lesson progression</h3>
+
+            <ul class="collection">
+                <li class="collection-item avatar">
+                  <i class="material-icons circle green">chrome_reader_mode</i>
+                  <span class="title">LeafletJS help</span>
+                    <p><a href="https://leafletjs.com/" target="_blank">Help is always close!</a></p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle green">chrome_reader_mode</i>
+                  <span class="title">Review basics of the dashboard so far</span>
+                  <p>Review <a href="https://mdjhoel.github.io/covid22/dash3/" target="_blank">dashboard</a> progress</p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle pink">code</i>
+                  <span class="title">Upgrade <a href="https://mdjhoel.github.io/covid22/dash4/" target="_blank">dashboard</a> to use JSON data</span>
+                  <p>Draw a circle for each country representing their confirmed COVID cases.</p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle blue">cloud_upload</i>
+                  <span class="title">Upload new code to Github</span>
+                  <p>
+                      Upload your changes
+                  </p>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle blue">cloud_upload</i>
+                  <span class="title">Update your repo wiki</span>
+                  <p>
+                      Write about what you learned today.
+                  </p>
+                </li>
+              </ul>
+
+            <h3 id="future">Future lessons</h3>
+            <ul class="collection">
+                <li class="collection-item">Graphing using chart.js</li>
+                <li class="collection-item">Show and tell</li>
+            </ul>
+        </div>
+    </body>
+
+    <script>
+
+        // call basic map
+        mapit()
+
+        // draw the basic map
+        function mapit(response) {
+            map = new L.Map('map');
+            var cartocdn = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
+            cartoAttrib = 'Carto geodatabase is good for this application';
+            carto = new L.TileLayer(cartocdn);
+            map.setView([51.5, 0.12],2); // centered on London lat, long
+            map.addLayer(carto);
+        }
+
+        // function receives API data, loops and creates a circle for each
+        function algo() {
+            // algorithm to go through all API data and map it
+            allvalues = Object.values(coviddata.data); // object values into array
+            for (i = 0; i < allvalues.length; i++) {
+                lat = allvalues[i].latitude;
+                lon = allvalues[i].longitude;
+                radius = parseInt(allvalues[i]['confirmed']) / 20
+                popup = allvalues[i]['location'] + ": " + allvalues[i]['confirmed']
+                L.circle([lat,lon],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius}).addTo(map).bindPopup(popup)
+            }
+        }
+
+    </script>
+
+</html>
