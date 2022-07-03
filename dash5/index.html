@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="data.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+  crossorigin=""></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><i class="large material-icons">adb</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="mycontainer">
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-content">
+              <span class="card-title">Map</span>
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-content">
+              <span class="card-title">Graph</span>
+              <canvas id="bar-chart" width="800" height="450"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Data</span>
+              <p id="mydata"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+
+
+  <script>
+    console.log(coviddata.data[0]);
+    var newhtml = "";
+    for (i=0;i<5;i++) {
+      newhtml = newhtml + coviddata.data[i].location + " " + coviddata.data[i].dead + "<br>";
+    }
+    document.getElementById("mydata").innerHTML = newhtml;
+
+    //mapping();
+    advmap();
+
+    function mapping() {
+      var map = L.map('map').setView([51.505, -0.09], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap'
+      }).addTo(map);
+    }
+
+    function advmap() {
+      var map = L.map('map').setView([51.505, -0.09], 1);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap'
+      }).addTo(map);
+      allvalues = Object.values(coviddata.data);
+      for (i = 0; i < allvalues.length; i++) {
+          lat = allvalues[i].latitude;
+          lon = allvalues[i].longitude;
+          radius = parseInt(allvalues[i]['confirmed']) / 20
+          popup = allvalues[i]['location'] + ": " + allvalues[i]['confirmed']
+          L.circle([lat,lon],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius}).addTo(map).bindPopup(popup)
+      }
+    }
+
+    //barchart();
+    function barchart() {
+      new Chart(document.getElementById("bar-chart"), {
+          type: 'bar',
+          data: {
+            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+            datasets: [
+              {
+                label: "Population (millions)",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                data: [2478,5267,734,784,433]
+              }
+            ]
+          },
+          options: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: 'Predicted world population (millions) in 2050'
+            }
+          }
+      });
+    }
+
+    advchart()
+    function advchart() {
+      // make objects into an array
+      allvalues = Object.values(coviddata.data);
+      // sorting!
+      allvalues.sort((a,b) =>  b.dead - a.dead);
+
+      var mylabels = [];
+      var mydata = [];
+      for (i = 0; i < 5; i++) {
+          mylabels.push(allvalues[i].location);
+          mydata.push(allvalues[i].dead);
+      }
+      new Chart(document.getElementById("bar-chart"), {
+          type: 'bar',
+          data: {
+            labels: mylabels,
+            datasets: [
+              {
+                label: "COVID deaths",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                data: mydata
+              }
+            ]
+          },
+          options: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: 'COVID deaths by country'
+            }
+          }
+      });
+    }
+
+
+  </script>
+
+</html>
