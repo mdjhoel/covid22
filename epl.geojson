@@ -1,0 +1,305 @@
+jsonfeatures = {
+   "type":"FeatureCollection",
+   "features":[
+      {
+         "type":"Feature",
+         "properties":{
+            "team":"Newcastle",
+            "name":"St. James Park",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -1.6220712661743164,
+               54.97559404488971
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "team":"Sunderland",
+            "name":"Stadium of Light",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -1.3882255554199219,
+               54.914501673836725
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "team":"Hull City",
+            "name":"KC Stadium",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -0.36765575408935547,
+               53.74627453082492
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Old Trafford",
+            "team":"Manchester United",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -2.2910892963409424,
+               53.463091264220985
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Eithad Stadium",
+            "team":"Manchester City",
+            "stroke": "#6495ED"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -2.200398445129394,
+               53.48318098785986
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "team":"Everton",
+            "name":"Goodison Park",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -2.9665017127990723,
+               53.43881254526205
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"St. Mary's Stadium",
+            "team":"Southampton",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -1.3910579681396484,
+               50.90582033002634
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Cardiff City Stadium",
+            "team":"Cardiff",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -3.2029008865356445,
+               51.472829664858644
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Liberty Stadium",
+            "team":"Swansea",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -3.9347362518310547,
+               51.64276411209733
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Carrow Road",
+            "team":"Norwich City",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               1.3090574741363525,
+               52.62208960973543
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Britannia Stadium",
+            "team":"Stoke City",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -2.1753358840942383,
+               52.9883372533954
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Anfield",
+            "team":"Liverpool",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -2.9609012603759766,
+               53.43083587514253
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Villa Park",
+            "team":"Aston Villa",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -1.8848204612731931,
+               52.509116855699546
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"The Hawthorns",
+            "team":"West Brom Albion",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -1.9635915756225588,
+               52.50867281705331
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Stamford Bridge",
+            "team":"Chelsea",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -0.1909947395324707,
+               51.481716974147
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Craven Cottage",
+            "team":"Fulham",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -0.22161483764648438,
+               51.47484783742382
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"The Emirates",
+            "team":"Arsenal",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -0.10846853256225586,
+               51.555034588974564
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Selhurst Park",
+            "team":"Crystal Palace",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -0.08542299270629883,
+               51.398295312425134
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"White Hart Lane",
+            "team":"Tottenham",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -0.06576776504516602,
+               51.603212174113104
+            ]
+         }
+      },
+      {
+         "type":"Feature",
+         "properties":{
+            "name":"Bolyen Ground",
+            "team":"West Ham",
+            "stroke": "#ff0000"
+         },
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               0.039310455322265625,
+               51.53176092431681
+            ]
+         }
+      }
+   ]
+}
